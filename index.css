@@ -34,6 +34,19 @@ h1{
     margin-bottom: 20px;
     margin-top: 5px;
 }
+h1 ion-icon{
+    color: rgba(255, 217, 0, 0.61);
+}
+h2{
+    margin: 0% auto;
+    font-size: 16px;
+    color: darkgray;
+    text-shadow: 2px 2px 4px darkblue;
+    text-align: center;
+}
+h2 ion-icon {
+    color: rgba(255, 217, 0, 0.582);
+}
 
 header {
     margin: 0% auto;
@@ -113,7 +126,7 @@ li span {
     overflow: auto;
     height: 450px;
     box-shadow: 0px 2px 6px lightskyblue;
-    margin-bottom: 10%;
+    margin-bottom: 13%;
 }
 .Chat-Display::-webkit-scrollbar{
     width: 12px;
@@ -155,7 +168,7 @@ li span {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #b7b5b9;
+    background: linear-gradient(to right,black,darkblue,maroon,black);
     border: 1px solid gold;
     padding: 5px;
 }
@@ -197,9 +210,9 @@ button:hover{
 
 @media (min-width: 768px){
     .Chat-Display{
+        margin: 0% auto;
         border: none;
         box-shadow: none;
-       
-    }
-    
+        margin-bottom: 5%;
+    } 
 }
