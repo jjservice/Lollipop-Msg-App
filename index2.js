@@ -15,16 +15,21 @@ const firebaseConfig = {
   
   // get user's data
 
+  let username = '';
 
-   // Ask for the user's name
-   const username = prompt("Please tell us your name");
+  // Listen for the "Submit" button to set the user's name
+  document.getElementById('set-name-btn').addEventListener('click', function() {
+    const nameInput = document.getElementById('username').value;
+    if (nameInput) {
+      username = nameInput;
+      document.getElementById('greeting').textContent = `Welcome, ${username}!`;
+      document.getElementById('username-container').style.display = 'none';
+    } else {
+      alert("Please enter a name.");
+    }
+  });
 
-   // Display the greeting on the webpage
-   if (username) {
-     document.getElementById("greeting").textContent = `Welcome, ${username}!`;
-   } else {
-     document.getElementById("greeting").textContent = "Hello, Stranger!";
-   }
+
   
   // submit form
   // listen for submit event on the form and call the postChat function
