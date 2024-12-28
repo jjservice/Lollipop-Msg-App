@@ -227,7 +227,7 @@ button {
     margin: 0% auto;
     position: fixed;
     right: 10px;
-    bottom: 15px;
+    bottom: 12px;
     width: 20%;
     border-radius: 15px;
     background-color: #1e22e0;
@@ -253,16 +253,16 @@ button:hover{
     margin:  0% auto;
     position: fixed;
     left: 5;
-    bottom: 15px;
+    bottom: 10px;
     display: flex;
     background-image: url(MusicGig.gif);
     background-position: center;
-    background-size: 100%;
+    background-size: cover;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 10%;
-    height: 5%;
+    height: 30px;
     border-radius: 6px;
     border-bottom: 1px solid wheat;
     opacity: 70%;
