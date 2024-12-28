@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LOLLIPOP CHAT</title>
+    <link rel="stylesheet" href="index2.css">
+  </head>
+  <body>
+
+    <h1>LOLLIP<ion-icon name="headset-sharp"></ion-icon>P</h1>
+    <h2>Secret<ion-icon name="chatbubbles-outline"></ion-icon>Chat</h2>
+    <p id="greeting"></p>
+    
+    <!-- chat container -->
+     <div class="Chat-Display">
+
+    <div id="chat">
+      <!-- messages will display here -->
+      <ul id="messages"></ul>
+
+    </div>
+    <hr>
+    <h3>JJPoweredIT<ion-icon name="bonfire-sharp"></ion-icon></h3>
+
+      <!-- form to send message -->
+      <form id="message-form">
+        <a href="javascript:history.back()" class="Home-btn"><ion-icon name="home"></ion-icon></a>
+        <input id="message-input" type="text" placeholder="Lollipop Chat..." required />
+        <button id="message-btn" type="submit"><ion-icon name="send"></ion-icon></button>
+
+      </form>
+    </div>
+
+    <!-- scripts -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="index2.js"></script>
+  </body>
+</html>
