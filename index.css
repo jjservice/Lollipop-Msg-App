@@ -210,7 +210,9 @@ li span {
 
 input {
     margin: 0% auto;
-    width: 75%;
+    position: relative;
+    right: 20px;
+    width: 60%;
     padding: 10px;
     border-radius: 15px;
     margin: 5px;
@@ -218,10 +220,14 @@ input {
     border: 2px solid lightskyblue;
     background-color: rgba(245, 245, 245, 0.842);
     box-shadow: 0px 2px 4px black;
+    gap: 10px;
 }
 
 button {
     margin: 0% auto;
+    position: fixed;
+    right: 10px;
+    bottom: 15px;
     width: 20%;
     border-radius: 15px;
     background-color: #1e22e0;
@@ -236,9 +242,38 @@ button {
 }
 button:hover{
     transform: scale(1.10);
-    transition: 0.5s;
-} 
+    transition: 0.5s ease;
+    color: rgb(38, 216, 38);
+    box-shadow: 0px 2px 8px gold;
+}
 
+.Home-btn{
+    margin:  0% auto;
+    position: fixed;
+    left: 5;
+    bottom: 15px;
+    display: flex;
+    background-image: url(MusicGig.gif);
+    background-position: center;
+    background-size: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 10%;
+    height: 5%;
+    border-radius: 6px;
+    border-bottom: 1px solid wheat;
+}
+.Home-btn ion-icon{
+    color: rgba(202, 173, 10, 0.616);
+    font-size: 20px;
+}
+.Home-btn:hover{
+    transform: scale(1.10);
+    transition: 0.5s ease;
+    color: gold;
+    box-shadow: 0px 2px 8px gold;
+}
 
 
 
@@ -255,8 +290,12 @@ button:hover{
         font-size: 18px;
     }
     button{
+        margin: 0% auto;
+        position: relative;
         width: 10%;
         padding: 10px;
+        right: 15px;
+        top: 0;
     }
     h1{
         width: 600px;
@@ -265,4 +304,9 @@ button:hover{
     h2{
         width: 450px;
     }
+    .Home-btn{
+        width: 50px;
+        height: 30px;
+    }
+    
 }
