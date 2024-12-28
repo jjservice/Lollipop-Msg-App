@@ -221,4 +221,12 @@ button:hover{
         box-shadow: none;
         margin-bottom: 5%;
     } 
+    input{
+        width: 50%;
+        font-size: 18px;
+    }
+    button{
+        width: 10%;
+        padding: 10px;
+    }
 }
