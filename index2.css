@@ -222,12 +222,31 @@ li span {
     background-color: rgba(245, 245, 245, 0.842);
     box-shadow: 0px 2px 4px black;
     margin-right: 15px;
+    width: 50%;
+    margin-bottom: 10px;
+    
 }
-#set-name-btn{
+#set-name-btn {
+    margin: 0% auto;
     position: relative;
-    top: 0px;
-    padding: 6px 10px;
-   
+    width: 100px;
+    right: 10px;
+    border-radius: 15px;
+    background-color: green;
+    color: white;
+    text-shadow: 0px 0px 3px gold;
+    font-size: 18px;
+    padding: 6px 12px;
+    border: none;
+    border: 1px solid gold;
+    box-shadow: 0px 2px 6px black;
+    cursor: pointer;
+}
+#set-name-btn:hover{
+    transform: scale(1.10);
+    transition: 0.5s ease;
+    box-shadow: 0px 2px 8px gold;
+    border: none;
 }
 #message-input {
     margin: 0% auto;
@@ -373,7 +392,7 @@ li span {
        
     }
     #username{
-        width: 20%;
+        width: 30%;
         margin-right: 20px;
     }
     h1{
