@@ -324,7 +324,7 @@ li span {
     margin:  0% auto;
     position: absolute;
     left: 5px;
-    top: 0px;
+    top: 2px;
     background-color: rgba(2, 5, 39, 0.219);
     align-items: center;
     justify-content: center;
@@ -434,7 +434,7 @@ li span {
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow-y: scroll;
-            width: 200px;
+            width: 265px;
             height: 40vh;
             z-index: 10;
         }
@@ -491,7 +491,7 @@ li span {
 
         .Emoji-Grid{
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-gap: 10px;
             margin: 0% auto;
             padding: 10px -6px;
