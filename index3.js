@@ -39,10 +39,22 @@ document.getElementById("message-form").addEventListener("submit", sendMessage);
 function sendMessage(e) {
   e.preventDefault();
 
+  // Check if the username is empty
+  if (!username) {
+      alert("Please enter a username before sending a message!");
+      return; // Prevent message from being sent
+  }
+
   // Get values to be submitted
   const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
+
+  // Check if the message is empty
+  if (!message.trim()) {
+    alert("Please enter a message before sending!");
+    return; // Prevent empty message from being sent
+  }
 
   // Clear the input box
   messageInput.value = "";
@@ -100,6 +112,7 @@ fetchChat.on("child_added", function (snapshot) {
     receivedSound.play(); // Play the sound when a new message is received
   }
 });
+
 
 
 // Voice Input Logic using Web Speech API
