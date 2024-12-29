@@ -319,10 +319,9 @@ li span {
 
 .Home-btn{
     margin:  0% auto;
-    position: relative;
-    left: 5;
-    bottom: 0px;
-    display: flex;
+    position: absolute;
+    left: 5px;
+    top: 0px;
     background-color: rgba(2, 5, 39, 0.219);
     align-items: center;
     justify-content: center;
