@@ -423,5 +423,73 @@ li span {
         left: 5px;
         padding: 9px 10px;
     }
-    
 }
+
+
+        /* Emoji picker box styles */
+        .emoji-box {
+            margin:  0% auto;
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            left: 40px;
+            background-color: rgba(58, 45, 45, 0.349);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: scroll;
+            width: 200px;
+            height: 40vh;
+            z-index: 10;
+        }
+        .emoji-box::-webkit-scrollbar{
+            width: 10px;
+            height: 0px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+           
+        }
+        .emoji-box::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid gold;
+            border-radius: 50px;
+        }
+        .emoji-box::-webkit-scrollbar-thumb:hover{
+            border: 2px solid gold;
+            background-color: black;
+            width: 10px;
+            height: 10px;
+        }
+        .Chat-Display::-webkit-scrollbar-track{
+            background: transparent;
+        }
+
+        /* Style for each emoji in the box */
+        .emoji-item {
+            margin:  auto;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .emoji-item:hover {
+            background-color: #f1f1f1a9;
+            border-radius: 10px;
+        }
+
+        /* Style for selected emoji */
+        .selected-emoji {
+            margin-left: 10px;
+        }
+        #emojiButton{
+            position: relative;
+            bottom: -4px;
+            font-size: 25px;
+            border-bottom: 1px solid wheat;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 6px black;
+        }
