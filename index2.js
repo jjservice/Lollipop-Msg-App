@@ -1,4 +1,4 @@
-// Your web app's Firebase configuration
+// Your web app's Firebase configuration (already provided)
 const firebaseConfig = {
   apiKey: "AIzaSyDCG0j5LN8sE1vE7viRCkH5r84-Yf8f6uo",
   authDomain: "message-app-29ab4.firebaseapp.com",
@@ -7,70 +7,98 @@ const firebaseConfig = {
   messagingSenderId: "490264790429",
   appId: "1:490264790429:web:41f1d58f0bd48d064e5b74"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// initialize database
+// Initialize database
 const db = firebase.database();
 
-// get user's data
-
+// Get user's data
 let username = '';
+
+// Flag to check if the message was sent by the user
+let isMessageSent = false;
 
 // Listen for the "Submit" button to set the user's name
 document.getElementById('set-name-btn').addEventListener('click', function() {
   const nameInput = document.getElementById('username').value;
   if (nameInput) {
-    username = nameInput;
-    document.getElementById('greeting').textContent = `Hi, ${username}!`;
-    document.getElementById('username-container').style.display = 'none';
+      username = nameInput;
+      document.getElementById('greeting').textContent = `Hi, ${username}!`;
+      document.getElementById('username-container').style.display = 'none';
   } else {
-    alert("Please enter a name!");
+      alert("Please enter a name!");
   }
 });
 
-
-
-// submit form
-// listen for submit event on the form and call the postChat function
+// Submit form
 document.getElementById("message-form").addEventListener("submit", sendMessage);
 
-// send message to db
+// Send message to db
 function sendMessage(e) {
   e.preventDefault();
 
-  // get values to be submitted
+  // Get values to be submitted
   const timestamp = Date.now();
   const messageInput = document.getElementById("message-input");
   const message = messageInput.value;
 
-  // clear the input box
+  // Clear the input box
   messageInput.value = "";
 
-  //auto scroll to bottom
+  // Auto scroll to bottom
   document
-    .getElementById("messages")
-    .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      .getElementById("messages")
+      .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
-  // create db collection and send in the data
+  // Mark the message as sent
+  isMessageSent = true;
+
+  // Create db collection and send in the data
   db.ref("messages/" + timestamp).set({
-    username,
-    message,
+      username,
+      message,
   });
+
+  // Play sent message sound
+  const sentSound = document.getElementById("sent-sound");
+
+  // Stop any playing sound first, then play the sent sound
+  if (!sentSound.paused) {
+    sentSound.pause(); // Pause if already playing
+    sentSound.currentTime = 0; // Reset the playback position
+  }
+  sentSound.play(); // Play the sound when a message is sent
+
+  // Reset the flag after sending
+  isMessageSent = false;
 }
 
-// display the messages
-// reference the collection created earlier
+// Display the messages
 const fetchChat = db.ref("messages/");
 
-// check for new messages using the onChildAdded event listener
+// Check for new messages using the onChildAdded event listener
 fetchChat.on("child_added", function (snapshot) {
   const messages = snapshot.val();
   const message = `<li class=${
-    username === messages.username ? "sent" : "receive"
+      username === messages.username ? "sent" : "receive"
   }><span>${messages.username}: </span>${messages.message}</li>`;
-  // append the message on the page
+
+  // Append the message on the page
   document.getElementById("messages").innerHTML += message;
+
+  // Play received message sound only if the message is not sent by the current user
+  if (username !== messages.username && !isMessageSent) {
+    const receivedSound = document.getElementById("received-sound");
+
+    // Stop any playing sound first, then play the received sound
+    if (!receivedSound.paused) {
+      receivedSound.pause(); // Pause if already playing
+      receivedSound.currentTime = 0; // Reset the playback position
+    }
+    receivedSound.play(); // Play the sound when a new message is received
+  }
 });
 
 
@@ -106,4 +134,3 @@ if (SpeechRecognition) {
 } else {
   console.log('Speech recognition is not supported in this browser.');
 }
-

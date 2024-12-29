@@ -17,6 +17,9 @@ const db = firebase.database();
 // Get user's data
 let username = '';
 
+// Flag to check if the message was sent by the user
+let isMessageSent = false;
+
 // Listen for the "Submit" button to set the user's name
 document.getElementById('set-name-btn').addEventListener('click', function() {
   const nameInput = document.getElementById('username').value;
@@ -49,6 +52,9 @@ function sendMessage(e) {
       .getElementById("messages")
       .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
+  // Mark the message as sent
+  isMessageSent = true;
+
   // Create db collection and send in the data
   db.ref("messages/" + timestamp).set({
       username,
@@ -57,7 +63,16 @@ function sendMessage(e) {
 
   // Play sent message sound
   const sentSound = document.getElementById("sent-sound");
+
+  // Stop any playing sound first, then play the sent sound
+  if (!sentSound.paused) {
+    sentSound.pause(); // Pause if already playing
+    sentSound.currentTime = 0; // Reset the playback position
+  }
   sentSound.play(); // Play the sound when a message is sent
+
+  // Reset the flag after sending
+  isMessageSent = false;
 }
 
 // Display the messages
@@ -73,15 +88,21 @@ fetchChat.on("child_added", function (snapshot) {
   // Append the message on the page
   document.getElementById("messages").innerHTML += message;
 
-  // Play received message sound
-  const receivedSound = document.getElementById("received-sound");
-  receivedSound.play(); // Play the sound when a new message is received
+  // Play received message sound only if the message is not sent by the current user
+  if (username !== messages.username && !isMessageSent) {
+    const receivedSound = document.getElementById("received-sound");
+
+    // Stop any playing sound first, then play the received sound
+    if (!receivedSound.paused) {
+      receivedSound.pause(); // Pause if already playing
+      receivedSound.currentTime = 0; // Reset the playback position
+    }
+    receivedSound.play(); // Play the sound when a new message is received
+  }
 });
 
 
-
-
-  // Voice Input Logic using Web Speech API
+// Voice Input Logic using Web Speech API
 const voiceInputButton = document.getElementById('voice-input-btn');
 const messageInput = document.getElementById('message-input');
 
@@ -90,26 +111,26 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 let recognition;
 
 if (SpeechRecognition) {
-    recognition = new SpeechRecognition();
-    recognition.continuous = false; // Stop listening after one result
-    recognition.lang = 'en-US'; // Set language for recognition
-    recognition.interimResults = false; // Only final results
+  recognition = new SpeechRecognition();
+  recognition.continuous = false; // Stop listening after one result
+  recognition.lang = 'en-US'; // Set language for recognition
+  recognition.interimResults = false; // Only final results
 
-    // Start voice recognition when the button is clicked
-    voiceInputButton.addEventListener('click', function() {
-        recognition.start(); // Start listening
-    });
+  // Start voice recognition when the button is clicked
+  voiceInputButton.addEventListener('click', function() {
+      recognition.start(); // Start listening
+  });
 
-    // Handle the speech input and update the message input field
-    recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
-        messageInput.value = transcript; // Set the message input with the recognized speech
-    };
+  // Handle the speech input and update the message input field
+  recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      messageInput.value = transcript; // Set the message input with the recognized speech
+  };
 
-    // Handle any errors with speech recognition
-    recognition.onerror = function(event) {
-        console.error('Speech recognition error:', event.error);
-    };
+  // Handle any errors with speech recognition
+  recognition.onerror = function(event) {
+      console.error('Speech recognition error:', event.error);
+  };
 } else {
-    console.log('Speech recognition is not supported in this browser.');
+  console.log('Speech recognition is not supported in this browser.');
 }
