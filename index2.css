@@ -194,7 +194,7 @@ li span {
 
 #chat {
     margin: 0% auto;
-    width: 80%;
+    width: 90%;
    
 }
 
@@ -205,6 +205,9 @@ li span {
     left: 0;
     bottom: 0;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background: linear-gradient(to right,black,darkblue,maroon,black);
     border: 1px solid rgba(255, 217, 0, 0.589);
     padding: 5px;

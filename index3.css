@@ -194,7 +194,7 @@ li span {
 
 #chat {
     margin: 0% auto;
-    width: 80%;
+    width: 90%;
    
 }
 
@@ -205,6 +205,9 @@ li span {
     left: 0;
     bottom: 0;
     width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background: linear-gradient(to right,black,darkblue,maroon,black);
     border: 1px solid rgba(255, 217, 0, 0.589);
     padding: 5px;
@@ -254,7 +257,7 @@ li span {
 #message-input {
     margin: 0% auto;
     position: relative;
-    width: 60%;
+    width: 50%;
     padding: 10px;
     border-radius: 15px;
     margin: 5px;
@@ -319,10 +322,9 @@ li span {
 
 .Home-btn{
     margin:  0% auto;
-    position: fixed;
-    left: 5;
+    position: absolute;
+    left: 5px;
     top: 0px;
-    display: flex;
     background-color: rgba(2, 5, 39, 0.219);
     align-items: center;
     justify-content: center;
@@ -376,14 +378,7 @@ li span {
         width: 50%;
         font-size: 18px;
     }
-    button{
-        margin: 0% auto;
-        position: relative;
-        width: 10%;
-        padding: 10px;
-        right: 15px;
-        top: 0;
-    }
+   
     #set-name-btn{
         position: relative;
         top: 0px;
@@ -421,8 +416,7 @@ li span {
     #voice-input-btn{
         width: 60px;
         height: 42px;
-        left: 4px;
-        padding: 5px 10px;
+        right: 185px;
     }
 }
 
@@ -493,4 +487,12 @@ li span {
             padding: 5px;
             border-radius: 10px;
             box-shadow: 0px 3px 6px black;
+        }
+
+        .Emoji-Grid{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin: 0% auto;
+            padding: 10px -6px;
         }
