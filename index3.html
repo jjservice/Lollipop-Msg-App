@@ -11,7 +11,6 @@
     <h1>LOLLIP<ion-icon name="headset-sharp"></ion-icon>P</h1>
     <h2>Secret<ion-icon name="chatbubbles-outline"></ion-icon>Chat</h2>
     <p id="greeting"></p>
-
    
     <!-- AUDIO NOTIFICATIONS -->
     <audio id="received-sound" src="BoxingBellSoundEffect.mp3"></audio>
@@ -34,17 +33,69 @@
     <hr>
     <h3>JJPoweredIT<ion-icon name="bonfire-sharp"></ion-icon></h3>
 
+       
       <!-- form to send message -->
       <form id="message-form">
         <a href="javascript:history.back()" class="Home-btn"><ion-icon name="home"></ion-icon></a>
+  
+        <span id="emojiButton">😊</span>
+
         <input id="message-input" type="text" placeholder="Lollipop Chat..." required />
+        
         <button id="message-btn" type="submit"><ion-icon name="send"></ion-icon></button>
 
+       
          <!-- Voice input button -->
       <button type="button" id="voice-input-btn" title="Use Voice Input">🎙️</button>
 
       </form>
     </div>
+ 
+     
+     <!-- Emoji Picker Box -->
+     <div class="emoji-box" id="emojiBox">
+      <div class="emoji-item">😊</div>
+      <div class="emoji-item">😍</div>
+      <div class="emoji-item">😂</div>
+      <div class="emoji-item">😎</div>
+      <div class="emoji-item">🤔</div>
+      <div class="emoji-item">🥺</div>
+      <div class="emoji-item">😜</div>
+      <div class="emoji-item">😇</div>
+      <div class="emoji-item">😈</div>
+      <div class="emoji-item">💩</div>
+    </div>
+ 
+
+  <script>
+      const emojiButton = document.getElementById("emojiButton");
+      const emojiBox = document.getElementById("emojiBox");
+      const selectedEmoji = document.querySelector(".selected-emoji");
+      const emojiInput = document.getElementById("message-input");
+
+      // Toggle the emoji box visibility
+      emojiButton.addEventListener("click", function() {
+          emojiBox.style.display = (emojiBox.style.display === "block") ? "none" : "block";
+      });
+
+      // Add event listeners for each emoji item
+      const emojiItems = document.querySelectorAll(".emoji-item");
+      emojiItems.forEach(item => {
+          item.addEventListener("click", function() {
+              // Add selected emoji to the input field
+              emojiInput.value += item.textContent;
+              emojiBox.style.display = "none";  // Close the emoji box after selection
+          });
+      });
+
+      // Close the emoji box if clicked outside
+      document.addEventListener("click", function(event) {
+          if (!emojiButton.contains(event.target) && !emojiInput.contains(event.target)) {
+              emojiBox.style.display = "none";
+          }
+      });
+  </script>
+
 
     <!-- scripts -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
