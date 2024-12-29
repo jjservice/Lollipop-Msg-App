@@ -273,7 +273,6 @@ li span {
     margin: 0% auto;
     position: relative;
     bottom: -1px;
-    
     width: 50px;
     border-radius: 15px;
     background-color: #1e22e0;
@@ -299,7 +298,7 @@ li span {
     margin: 0% auto;
     position: relative;
     right: 0px;
-    bottom: -3px;
+    bottom: -2px;
     width: 40px;
     height: 36px;
     border-radius: 12px;
