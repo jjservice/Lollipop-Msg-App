@@ -414,6 +414,7 @@ li span {
     }
     
     #voice-input-btn{
+        position: relative;
         width: 60px;
         height: 42px;
         right: 185px;
