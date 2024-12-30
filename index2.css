@@ -95,7 +95,16 @@ header {
     flex-direction: column;
     flex-wrap: wrap;
     position: relative;
-    width: 70%;
+    width: 100%;
+   
+}
+
+#messages{
+    margin: 0% auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
    
 }
 
@@ -108,8 +117,8 @@ li {
     border-radius: 10px;
     color: white;
     text-shadow: 1px 1px 2px black;
-    width: 80%;
-    margin-left: 50%;
+    width: 65%;
+    margin-left: 35%;
     box-shadow: 0px 3px 6px black;
     border-bottom: 1px solid wheat;
    
@@ -121,12 +130,12 @@ li {
     text-align: left;
     background-color: rgba(0, 0, 0, 0.603);
     box-shadow: 0px 3px 6px black;
-    margin-right: 20%;
+    margin-right: 35%;
     text-shadow: 2px 2px 2px darkblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 10px;
     border-bottom: 1px solid rgb(13, 182, 13);
-    width: 80%;
+    width: 65%;
    
 }
 
@@ -134,25 +143,25 @@ li {
     margin: 5px;
     color: white;
     text-shadow: 0px 0px 3px gold;
-    padding: 5px;
    
     
 }
 
 li span {
-    margin: 0% auto;
-    font-style: italic;
-    font-weight: bolder;
-    color: yellow;
-    text-shadow: 2px 2px 2px darkblue;
-    text-decoration: underline;
-    padding: 5px 2px;
-    margin: 3px;
-    border-radius: 10px;
-    text-align: left;
-    justify-content: center;
-    align-items: center;
+  margin: 0% auto;
+  font-style: italic;
+  font-weight: bolder;
+  color: yellow;
+  text-shadow: 2px 2px 2px darkblue;
+  text-decoration: underline;
+  padding: 5px 2px;
+  margin: 3px;
+  border-radius: 10px;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
 }
+
 .Chat-Display{
     margin: 0% auto;
     padding: 10px;
@@ -419,6 +428,21 @@ li span {
         width: 60px;
         height: 42px;
     }
+
+
+    li {
+      
+        width: 40%;
+        margin-left: 40%;
+    
+       
+    }
+    .sent {        
+        width: 40%;
+        margin-right: 40%;
+       
+    }
+
 }
 
         /* Emoji picker box styles */
