@@ -325,16 +325,17 @@ li span {
     margin:  0% auto;
     position: absolute;
     left: 5px;
-    top: 2px;
+    top: 5px;
     background-color: rgba(2, 5, 39, 0.219);
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 10%;
-    height: 30px;
+    height: 20px;
     border-radius: 6px;
     border-bottom: 1px solid wheat;
     opacity: 70%;
+    z-index: 999;
 }
 .Home-btn ion-icon{
     color: rgba(202, 173, 10, 0.616);
